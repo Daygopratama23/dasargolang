@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Pernikahan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-screen" style="background-image: url(./src/img/gambar1.jpg);">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+            <div class="text-center text-white">
+                <h1 class="text-5xl font-bold mb-4">Selamat Datang di Pernikahan Kami</h1>
+                <p class="text-xl mb-8">Tanggal: 25 Desember 2024</p>
+                <a href="#about" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Lihat Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-10">
+        <section id="about" class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 text-center">Tentang Kami</h2>
+            <p class="text-gray-700 text-center mb-6">
+                Kami adalah [Nama Mempelai Pria] dan [Nama Mempelai Wanita]. Kami sangat berbahagia untuk berbagi momen spesial ini dengan Anda semua.
+            </p>
+        </section>
+
+        <!-- Slideshow Gallery -->
+        <section class="max-w-7xl mx-auto px-4 py-10" x-data="{ current: 0, images: ['https://via.placeholder.com/600x400?text=Foto+1', 'https://via.placeholder.com/600x400?text=Foto+2', 'https://via.placeholder.com/600x400?text=Foto+3'] }">
+            <h2 class="text-2xl font-bold mb-6 text-center">Galeri</h2>
+            <div class="relative">
+                <img :src="images[current]" alt="Galeri" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                <div class="absolute inset-0 flex items-center justify-between">
+                    <button @click="current = (current > 0) ? current - 1 : images.length - 1" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l">
+                        &lt;
+                    </button>
+                    <button @click="current = (current < images.length - 1) ? current + 1 : 0" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r">
+                        &gt;
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-4 py-10">
+            <h2 class="text-2xl font-bold mb-6 text-center">Kontak Kami</h2>
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nama</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Nama" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Pesan</label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="4" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Kirim
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-white shadow mt-10">
+        <div class="max-w-7xl mx-auto px-4 py-4 text-center">
+            <p class="text-gray-600">&copy; 2024 [Nama Mempelai Pria] & [Nama Mempelai Wanita]. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
